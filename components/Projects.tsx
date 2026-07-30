@@ -60,11 +60,12 @@ function ProjectCard({
       rel="noopener noreferrer"
       style={{
         display: 'flex',
+        flexWrap: 'nowrap',
         borderRight: '2px solid white',
         alignItems: 'center',
-        gap: '24px',
+        gap: 'clamp(12px, 3vw, 24px)',
         borderRadius: '9px',
-        margin: '28px 0',
+        margin: 'clamp(14px, 4vw, 28px) 0',
         textDecoration: 'none',
         color: 'inherit',
       }}
@@ -72,8 +73,8 @@ function ProjectCard({
       {/* Thumbnail */}
       <div
         style={{
-          width: '280px',
-          height: '160px',
+          width: 'clamp(90px, 24vw, 280px)',
+          aspectRatio: '280 / 160',
           borderRadius: '8px',
           overflow: 'hidden',
           flexShrink: 0,
@@ -85,28 +86,31 @@ function ProjectCard({
           src={project.image}
           alt={project.name}
           fill
+          sizes="(max-width: 768px) 24vw, 280px"
           style={{ objectFit: 'cover' }}
         />
       </div>
 
       {/* Text */}
-      <div style={{ flex: 1 }}>
+      <div style={{ flex: 1, minWidth: 0 }}>
         <div
           style={{
             display: 'flex',
+            flexWrap: 'nowrap',
             alignItems: 'center',
             justifyContent: 'space-between',
-            gap: '16px',
-            marginBottom: '8px',
+            gap: 'clamp(8px, 2vw, 16px)',
+            marginBottom: 'clamp(4px, 1vw, 8px)',
           }}
         >
           <h3
             ref={headingRef}
             style={{
               flex: 1,
+              minWidth: 0,
               margin: 0,
               fontFamily: 'var(--font-poppins)',
-              fontSize: '28px',
+              fontSize: 'clamp(14px, 3.2vw, 28px)',
               fontWeight: 800,
               color: '#ffffff',
               letterSpacing: '0.02em',
@@ -120,7 +124,12 @@ function ProjectCard({
             alt="arrow"
             width={24}
             height={24}
-            style={{ flexShrink: 0, marginRight: "20px" }}
+            style={{
+              flexShrink: 0,
+              width: 'clamp(14px, 2.4vw, 24px)',
+              height: 'clamp(14px, 2.4vw, 24px)',
+              marginRight: 'clamp(6px, 1.6vw, 20px)',
+            }}
           />
         </div>
 
@@ -129,12 +138,12 @@ function ProjectCard({
           className={`typewriter-cursor${done ? ' done' : ''}`}
           style={{
             fontFamily: 'var(--font-poppins)',
-            fontSize: '16px',
+            fontSize: 'clamp(10px, 1.8vw, 16px)',
             fontWeight: 300,
             color: '#888',
             lineHeight: 1.6,
             maxWidth: '680px',
-            minHeight: '80px',
+            minHeight: 'clamp(40px, 8vw, 80px)',
           }}
         >
           {displayed}
@@ -155,7 +164,7 @@ export default function Projects() {
       data-nav-color="dark"
       style={{
         background: '#000000',
-        padding: '80px 80px 120px',
+        padding: 'clamp(16px, 6vw, 80px)',
         paddingTop: '30px',
         paddingBottom: '30px',
       }}

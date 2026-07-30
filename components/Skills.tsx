@@ -27,12 +27,12 @@ export default function Skills() {
       <section
         id="skills"
         style={{
-          padding: '40px 80px 0',
+         padding: 'clamp(60px, 8vw, 100px) clamp(20px, 6vw, 80px) 0',
           background: '#717171',
           minHeight: '400px'
         }}
       >
-        <div style={{ }}>
+        <div style={{}}>
           <h2
             style={{
               fontFamily: 'var(--font-poppins)',
@@ -40,7 +40,7 @@ export default function Skills() {
               fontWeight: 900,
               letterSpacing: '-0.02em',
               color: '#fff',
-              marginBottom: '32px',
+              marginBottom: 'clamp(18px, 4vw, 32px)',
             }}
           >
             Skills

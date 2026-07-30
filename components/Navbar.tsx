@@ -55,6 +55,7 @@ export default function Navbar() {
 
   return (
     <nav
+      className="site-navbar"
       style={{
         position: 'fixed',
         top: 0,
@@ -93,7 +94,10 @@ export default function Navbar() {
       </MagneticLink>
 
       {/* Center nav links */}
-      <div style={{ display: 'flex', gap: '36px', alignItems: 'center' }}>
+      <div
+        className="navbar-center-links"
+        style={{ display: 'flex', gap: '36px', alignItems: 'center' }}
+      >
         {[
           { label: '01 Projects', href: '#projects' },
           { label: '02 About', href: '#about' },
@@ -121,6 +125,7 @@ export default function Navbar() {
       <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
         <MagneticLink
           href="#contact"
+          className="navbar-get-in-touch"
           style={{
             fontFamily: 'var(--font-geist-mono)',
             fontSize: '12px',
@@ -136,20 +141,50 @@ export default function Navbar() {
           Get in touch
         </MagneticLink>
 
-        <MagneticLink
-          href="/resume.pdf"
-          style={{
-            fontFamily: 'var(--font-geist-mono)',
-            fontSize: '12px',
-            letterSpacing: '0.06em',
-            color: isDark ? '#ffffff' : '#0a0a0a',
-            textDecoration: 'none',
-            transition: 'color 0.3s ease, background 0.3s ease',
-          } as React.CSSProperties}
-        >
-          Résumé
-        </MagneticLink>
+<MagneticLink
+  href="/resume.pdf"
+  className="navbar-resume"
+  style={{
+    fontFamily: 'var(--font-geist-mono)',
+    fontSize: '12px',
+    letterSpacing: '0.06em',
+    color: isDark ? '#ffffff' : '#0a0a0a',
+    textDecoration: 'none',
+    transition: 'color 0.3s ease, background 0.3s ease',
+  } as React.CSSProperties}
+>
+  Résumé
+</MagneticLink>
       </div>
+
+      <style jsx>{`
+        /* Desktop (>= 768px): unchanged, all elements visible */
+
+        /* Small screens: hide center 01/02/03 links, keep logo + Get in touch + Résumé */
+        @media (max-width: 767px) {
+          .site-navbar {
+            padding: 0 24px;
+          }
+          .navbar-center-links {
+            display: none !important;
+          }
+        }
+
+        /* Even smaller screens: also hide Get in touch, keep only logo + Résumé */
+        @media (max-width: 530px) {
+          .site-navbar {
+            padding: 0 16px;
+          }
+  :global(.navbar-get-in-touch) {
+    display: none !important;
+  }
+      :global(.navbar-resume) {
+    padding: 8px 18px;
+    border: 1px solid ${borderColor};
+    border-radius: 4px;
+  }
+        }
+      `}</style>
     </nav>
   )
 }

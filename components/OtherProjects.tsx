@@ -70,18 +70,18 @@ function Marquee({ tags }: { tags: string[] }) {
   // Duplicate tags for seamless loop
   const doubled = [...tags, ...tags]
   return (
-    <div className="marquee-wrapper" style={{ marginBottom: '12px' }}>
+    <div className="marquee-wrapper" style={{ marginBottom: 'clamp(6px, 1.5vw, 12px)' }}>
       <div className="marquee-track">
         {doubled.map((tag, i) => (
           <span
             key={i}
             style={{
               fontFamily: 'var(--font-geist-mono)',
-              fontSize: '10px',
+              fontSize: 'clamp(8px, 1.6vw, 10px)',
               letterSpacing: '0.08em',
               color: '#717171',
               background: '#1e1e1e',
-              padding: '4px 10px',
+              padding: 'clamp(3px, 0.8vw, 4px) clamp(6px, 1.8vw, 10px)',
               borderRadius: '3px',
               whiteSpace: 'nowrap',
             }}
@@ -119,13 +119,14 @@ function OtherProjectCard({
         overflow: 'hidden',
         display: 'flex',
         flexDirection: 'column',
+        minWidth: 0,
       }}
     >
       {/* Browser Mockup */}
       <div
         style={{
           width: '100%',
-          padding: '12px',
+          padding: 'clamp(6px, 1.6vw, 12px)',
           background: '#000000ff',
         }}
       >
@@ -142,11 +143,11 @@ function OtherProjectCard({
           {/* Browser Top Bar */}
           <div
             style={{
-              height: '34px',
+              height: 'clamp(22px, 4.5vw, 34px)',
               background: '#3b3b3b',
               display: 'flex',
               alignItems: 'center',
-              padding: '0 14px',
+              padding: '0 clamp(7px, 1.8vw, 14px)',
             }}
           >
             {/* Left side */}
@@ -154,36 +155,38 @@ function OtherProjectCard({
               style={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: '10px',
+                gap: 'clamp(5px, 1.3vw, 10px)',
                 flex: 1,
+                minWidth: 0,
               }}
             >
               <div
                 style={{
                   display: 'flex',
-                  gap: '8px',
+                  gap: 'clamp(4px, 1vw, 8px)',
+                  flexShrink: 0,
                 }}
               >
                 <div
                   style={{
-                    width: 12,
-                    height: 12,
+                    width: 'clamp(6px, 1.6vw, 12px)',
+                    height: 'clamp(6px, 1.6vw, 12px)',
                     borderRadius: '50%',
                     background: '#6a6a6a',
                   }}
                 />
                 <div
                   style={{
-                    width: 12,
-                    height: 12,
+                    width: 'clamp(6px, 1.6vw, 12px)',
+                    height: 'clamp(6px, 1.6vw, 12px)',
                     borderRadius: '50%',
                     background: '#6a6a6a',
                   }}
                 />
                 <div
                   style={{
-                    width: 12,
-                    height: 12,
+                    width: 'clamp(6px, 1.6vw, 12px)',
+                    height: 'clamp(6px, 1.6vw, 12px)',
                     borderRadius: '50%',
                     background: '#6a6a6a',
                   }}
@@ -194,12 +197,13 @@ function OtherProjectCard({
                 <span
                   style={{
                     fontFamily: 'var(--font-geist-mono)',
-                    fontSize: '12px',
+                    fontSize: 'clamp(9px, 2vw, 12px)',
                     letterSpacing: '0.08em',
                     color: '#b5b5b5',
                     whiteSpace: 'nowrap',
                     overflow: 'hidden',
                     textOverflow: 'ellipsis',
+                    minWidth: 0,
                   }}
                 >
                   {project.website}
@@ -212,15 +216,16 @@ function OtherProjectCard({
           <div
             style={{
               position: 'relative',
-              height: '190px',
+              width: '100%',
+              aspectRatio: '340 / 190',
               background: '#fff',
-
             }}
           >
             <Image
               src={project.image}
               alt={project.name}
               fill
+              sizes="(max-width: 900px) 50vw, 33vw"
               style={{
                 objectFit: 'cover',
                 objectPosition: 'top',
@@ -232,17 +237,17 @@ function OtherProjectCard({
       </div>
 
       {/* Content */}
-      <div style={{ padding: '16px' }}>
+      <div style={{ padding: 'clamp(10px, 2.5vw, 16px)' }}>
         <Marquee tags={project.tags} />
 
         <h3
           ref={headingRef}
           style={{
             fontFamily: 'var(--font-poppins)',
-            fontSize: '15px',
+            fontSize: 'clamp(11px, 2.6vw, 15px)',
             fontWeight: 700,
             color: '#ffffff',
-            marginBottom: '10px',
+            marginBottom: 'clamp(6px, 1.5vw, 10px)',
             display: 'block',
           }}
         >
@@ -254,12 +259,12 @@ function OtherProjectCard({
           className={`typewriter-cursor${done ? ' done' : ''}`}
           style={{
             fontFamily: 'var(--font-poppins)',
-            fontSize: '14px',
+            fontSize: 'clamp(10px, 2.2vw, 14px)',
             fontWeight: 300,
             color: '#717171',
             lineHeight: 1.6,
-            marginBottom: '14px',
-            minHeight: '70px',
+            marginBottom: 'clamp(8px, 2vw, 14px)',
+            minHeight: 'clamp(50px, 12vw, 70px)',
           }}
         >
           {displayed}
@@ -272,7 +277,7 @@ function OtherProjectCard({
           rel="noopener noreferrer"
           style={{
             fontFamily: 'var(--font-geist-mono)',
-            fontSize: '11px',
+            fontSize: 'clamp(9px, 1.8vw, 11px)',
             letterSpacing: '0.06em',
             color: '#ffffff',
             textDecoration: 'none',
@@ -290,6 +295,8 @@ function OtherProjectCard({
             style={{
               objectFit: 'cover',
               objectPosition: 'top',
+              width: 'clamp(8px, 1.6vw, 12px)',
+              height: 'clamp(8px, 1.6vw, 12px)',
             }}
           />
         </a>
@@ -344,8 +351,8 @@ function OtherProjectsDivider() {
       style={{
         display: 'flex',
         alignItems: 'center',
-        gap: '20px',
-        marginBottom: '60px',
+        gap: 'clamp(10px, 2.5vw, 20px)',
+        marginBottom: 'clamp(28px, 6vw, 60px)',
       }}
     >
       <div
@@ -355,7 +362,7 @@ function OtherProjectsDivider() {
       <span
         style={{
           fontFamily: 'var(--font-poppins)',
-          fontSize: '30px',
+          fontSize: 'clamp(16px, 4vw, 30px)',
           color: '#717171',
           fontWeight: '800',
           whiteSpace: 'nowrap',
@@ -377,25 +384,36 @@ export default function OtherProjects() {
     <section
       id="other-projects"
       data-nav-color="dark"
+      className="other-projects-section"
       style={{
         background: '#0a0a0a',
-        padding: '0 80px 120px',
-        paddingBottom: '30px'
+        padding: '0 clamp(16px, 6vw, 80px) 120px',
+        paddingBottom: '30px',
       }}
     >
       <OtherProjectsDivider />
 
       <div
+        className="other-projects-grid"
         style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: '24px',
+          gap: 'clamp(10px, 3vw, 24px)',
         }}
       >
         {OTHER_PROJECTS.map((project, i) => (
           <OtherProjectCard key={project.id} project={project} index={i} />
         ))}
       </div>
+
+      <style jsx>{`
+        /* Below this width, 3 columns get too cramped — drop to 2, never to 1 */
+        @media (max-width: 900px) {
+          .other-projects-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+          }
+        }
+      `}</style>
     </section>
   )
 }

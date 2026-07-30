@@ -33,11 +33,12 @@ export default function Hero() {
           zIndex: 1,
           fontFamily: "'Bungee Outline', cursive, sans-serif",
           color: 'rgba(10,10,10,0.9)',
-          fontSize: 'clamp(32px, 10vw, 100px)',
+          fontSize: 'clamp(22px, 9vw, 100px)',
           textAlign: 'center',
           lineHeight: '1.15',
           whiteSpace: 'nowrap',
-          marginTop: '-15vh',
+          marginTop: 'clamp(-12vh, -15vh, -15vh)',
+          padding: '0 clamp(8px, 3vw, 40px)',
           pointerEvents: 'none',
         }}
       >
@@ -61,20 +62,16 @@ export default function Hero() {
         <div
           style={{
             position: 'relative',
-            width: '420px',
-            height: '640px',
-            marginBottom: '50px',
+            width: 'clamp(180px, 55vw, 420px)',
+            aspectRatio: '420 / 640',
+            marginBottom: 'clamp(16px, 7vh, 50px)',
           }}
         >
-          {/*
-            Replace src with your actual image path: /images/profile.png
-            Use a transparent PNG for best layering over the particle text.
-          */}
           <Image
             src="/images/profile.png"
             alt="Zain Ul Abideen"
             fill
-            sizes="340px"
+            sizes="(max-width: 768px) 55vw, 340px"
             style={{ objectFit: 'contain', objectPosition: 'bottom' }}
             priority
           />
@@ -92,7 +89,7 @@ export default function Hero() {
           lineHeight: 0,
         }}
       >
-        <svg width="100%" viewBox="0 0 680 120" xmlns="http://www.w3.org/2000/svg">
+        <svg width="100%" viewBox="0 0 680 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
 
           <path
             d="M0,52 C120,75 220,75 340,55 C460,35 560,32 680,45 L680,120 L0,120 Z"
