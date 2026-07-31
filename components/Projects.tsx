@@ -12,7 +12,7 @@ const PROJECTS = [
     description:
       'UNISON is a social networking platform that connects university students and alumni, enabling networking, mentorship, career opportunities, and community engagement through a centralized platform.',
     image: '/images/unison.png',
-    href: 'https://github.com/ZainUlAbideen',
+    href: 'https://github.com/HammadIsmail/Unisons-frontend',
     tags: ['Next.js', 'WebSockets', 'Neo4j', 'Lucide React', 'shadcn/ui', 'NestJs', 'TailwindCSS', 'TypeScript', 'GraphQL', 'JWT'],
   },
   {
@@ -21,7 +21,7 @@ const PROJECTS = [
     description:
       'A full-stack image management platform where users can upload, store, and manage images using Cloudinary, with secure user authentication and cloud-based media handling.',
     image: '/images/image-hoster.png',
-    href: 'https://github.com/ZainUlAbideen',
+    href: 'https://github.com/ZainUlAbideen-01/Cloud-Image-Handler',
     tags: ['React', 'Node.js', 'Express.js', 'MongoDB', 'Cloudinary', 'JWT', 'TailwindCSS', 'TypeScript'],
   },
   {
@@ -30,7 +30,7 @@ const PROJECTS = [
     description:
       'A CNN-based deep learning model that classifies chest X-rays for pneumonia detection with 99% accuracy with ResNet-18.',
     image: '/images/pneumonia.png',
-    href: 'https://github.com/ZainUlAbideen',
+    href: 'https://github.com/ZainUlAbideen-01/Pneumonia-Detection-System-using-Deep-Learning',
     tags: ['ResNet-18', 'Python', 'Streamlit', 'Sklearn', 'Torch', 'Matplotlib', 'Numpy'],
   },
 ]
@@ -85,16 +85,15 @@ function ProjectCard({
   return (
     <a
       ref={cardRef}
+      className="project-card"
       href={project.href}
       target="_blank"
       rel="noopener noreferrer"
       style={{
         display: 'flex',
         flexWrap: 'nowrap',
-        borderRight: '2px solid white',
         alignItems: 'center',
         gap: 'clamp(12px, 3vw, 24px)',
-        borderRadius: '9px',
         margin: 'clamp(14px, 4vw, 28px) 0',
         textDecoration: 'none',
         color: 'inherit',
@@ -122,7 +121,7 @@ function ProjectCard({
       </div>
 
       {/* Text */}
-      <div style={{ flex: 1, minWidth: 0 }}>
+      <div style={{ flex: 1, minWidth: 0, borderRight: '2px solid white', borderRadius: '9px', }}>
         <div
           style={{
             display: 'flex',

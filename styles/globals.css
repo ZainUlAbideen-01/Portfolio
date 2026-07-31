@@ -280,3 +280,27 @@ body {
     @apply font-sans;
   }
 }
+
+.project-card {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: clamp(12px, 3vw, 24px);
+}
+
+@media (max-width: 530px) {
+  .project-card {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+  }
+
+  .project-card > div:first-child {
+    width: clamp(120px, 35vw, 220px) !important;
+    aspect-ratio: 280 / 160 !important;
+  }
+
+  .project-card > div:last-child {
+    width: 100%;
+  }
+}

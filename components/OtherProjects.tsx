@@ -15,7 +15,7 @@ const OTHER_PROJECTS = [
       'A fully responsive e-commerce storefront for a Japanese sushi themed restaurant with clean animations.',
     image: '/images/other-projects/sushi.png',
     tags: ['HTML', 'TailwindCSS', 'JavaScript', 'Animate-On-Scroll', 'Netlify'],
-    href: 'https://github.com/ZainUlAbideen',
+    href: 'https://github.com/ZainUlAbideen-01/Sushi-Themed-Website',
     website: 'sushistore826.netlify.app',
   },
     {
@@ -24,7 +24,7 @@ const OTHER_PROJECTS = [
     description: 'A movie browsing website that lets users explore movies, view details, and save their favorite titles for easy access.',
     image: '/images/other-projects/zmovies.png',
     tags: ['React','JavaScript','TailwindCSS', 'TMDB API', 'Redux Toolkit', 'Lucide React', 'Netlify'],
-    href: 'https://github.com/ZainUlAbideen/ZMovies',
+    href: 'https://github.com/ZainUlAbideen-01/ZMovies',
     website: 'zmovies826.netlify.app',
   },
     {
@@ -33,7 +33,7 @@ const OTHER_PROJECTS = [
     description: 'A resource management platform for organizations to manage users, access groups, spaces, and administrative permissions.',
     image: '/images/other-projects/spacesync.png',
     tags: ['NextJs', 'MongoDB', 'JWT', 'Express' , 'shadcn/ui', 'TailwindCSS', 'Lucide React', 'TypeScript', 'REST APIs'],
-    href: 'https://github.com/ZainUlAbideen',
+    href: 'https://github.com/ZainUlAbideen-01/SpaceSync-Resource-Manager',
     website: '',
   },
     {
@@ -42,7 +42,7 @@ const OTHER_PROJECTS = [
     description: 'A Spotify-style music streaming website where users can explore albums, browse songs, and enjoy the music.',
     image: '/images/other-projects/tunely.png',
     tags: ['HTML','CSS','JavaScript', 'Netlify'],
-    href: 'https://github.com/ZainUlAbideen/ZMovies',
+    href: 'https://github.com/ZainUlAbideen-01/Tunely',
     website: 'tunely826.netlify.app',
   },
     {
@@ -51,7 +51,7 @@ const OTHER_PROJECTS = [
     description: 'A Mario-style 2D platformer game built with .NET Windows Forms, featuring three levels, enemies and obstacles.',
     image: '/images/other-projects/jumper.png',
     tags: ['C#','.NET'],
-    href: 'https://github.com/ZainUlAbideen',
+    href: 'https://github.com/ZainUlAbideen-01/Jumper-Game-.NET-Framework-',
     website: '',
   },
     {
@@ -60,7 +60,7 @@ const OTHER_PROJECTS = [
     description: 'A .NET-based cosmetics booking management system for managing customer, bookings, and products.',
     image: '/images/other-projects/cosmetics.png',
     tags: ['MySql', 'SSMS','C#','.NET'],
-    href: 'https://github.com/ZainUlAbideen',
+    href: 'https://github.com/ZainUlAbideen-01/CBMS-.NET-Framework-',
     website: '',
   },
   {
@@ -69,7 +69,7 @@ const OTHER_PROJECTS = [
     description: 'A computer vision-based fitness tracker that counts workout reps and sets in real time, with an integrated AI chatbot.',
     image: '/images/other-projects/gym.png',
     tags: ['Python', 'Html','Css','Javascript', 'MediaPipe Hands', 'Gemini API', 'MediaPipe Pose'],
-    href: 'https://github.com/ZainUlAbideen',
+    href: 'https://github.com/ZainUlAbideen-01/AI-Based-Gym-Fitness-Tracker',
     website: '',
   },
 
