@@ -2,9 +2,11 @@
 
 import { useState } from 'react'
 import SkillsList from './skills/SkillsList'
+import { useEmergeAnimation } from '@/hooks/useEmergeAnimation'
 
 export default function Skills() {
   const [selectedId, setSelectedId] = useState<string | null>(null)
+  const headingRef = useEmergeAnimation<HTMLHeadingElement>({ duration: 0.9 })
 
   return (
     <>
@@ -34,6 +36,7 @@ export default function Skills() {
       >
         <div style={{}}>
           <h2
+            ref={headingRef}
             style={{
               fontFamily: 'var(--font-poppins)',
               fontSize: 'clamp(40px, 6vw, 72px)',

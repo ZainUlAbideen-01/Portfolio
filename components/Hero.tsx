@@ -23,6 +23,7 @@ export default function Hero() {
 
       {/* Background Text */}
       <div
+        className="hero-bg-text"
         style={{
           position: 'absolute',
           inset: 0,
@@ -36,7 +37,6 @@ export default function Hero() {
           fontSize: 'clamp(22px, 9vw, 100px)',
           textAlign: 'center',
           lineHeight: '1.15',
-          whiteSpace: 'nowrap',
           marginTop: 'clamp(-12vh, -15vh, -15vh)',
           padding: '0 clamp(8px, 3vw, 40px)',
           pointerEvents: 'none',
@@ -60,9 +60,9 @@ export default function Hero() {
         }}
       >
         <div
+          className="hero-photo"
           style={{
             position: 'relative',
-            width: 'clamp(180px, 55vw, 420px)',
             aspectRatio: '420 / 640',
             marginBottom: 'clamp(16px, 7vh, 50px)',
           }}
@@ -71,32 +71,28 @@ export default function Hero() {
             src="/images/profile.png"
             alt="Zain Ul Abideen"
             fill
-            sizes="(max-width: 768px) 55vw, 340px"
+            sizes="(max-width: 765px) 420px, (max-width: 768px) 55vw, 340px"
             style={{ objectFit: 'contain', objectPosition: 'bottom' }}
             priority
           />
         </div>
       </div>
 
-      {/* Wave SVG divider — dark to light */}
+{/* Wave SVG divider — dark to light */}
       <div
+        className="hero-wave"
         style={{
           position: 'absolute',
           bottom: 0,
-          left: 0,
-          right: 0,
           zIndex: 3,
           lineHeight: 0,
         }}
       >
         <svg width="100%" viewBox="0 0 680 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-
           <path
             d="M0,52 C120,75 220,75 340,55 C460,35 560,32 680,45 L680,120 L0,120 Z"
             fill="#737373"
           />
-
-
           <path
             d="M0,55
        C120,78 220,78 340,58
@@ -106,6 +102,37 @@ export default function Hero() {
           />
         </svg>
       </div>
+
+      <style jsx>{`
+        .hero-bg-text {
+          white-space: nowrap;
+        }
+
+        .hero-photo {
+          width: clamp(180px, 55vw, 420px);
+        }
+
+        .hero-wave {
+          width: 100%;
+        }
+
+        @media (max-width: 765px) {
+          .hero-bg-text {
+            white-space: normal;
+          }
+
+          .hero-photo {
+            width: 420px;
+          }
+
+          .hero-wave {
+            width: 765px;
+            left: 50%;
+            right: auto;
+            transform: translateX(-50%);
+          }
+        }
+      `}</style>
     </section>
   )
 }
