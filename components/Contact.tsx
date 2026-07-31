@@ -8,8 +8,8 @@ const SOCIAL_LINKS = [
   {
     id: 'linkedin',
     label: 'LINKEDIN',
-    handle: 'linkedin.com/in/zainulabideen23',
-    href: 'https://linkedin.com/in/zainulabideen23',
+    handle: 'linkedin.com/in/zainulabideencs23',
+    href: 'https://linkedin.com/in/zainulabideencs23',
     icon: (
       <img src="/svgs/linkedin.svg" alt="LinkedIn" />
     ),
@@ -17,8 +17,8 @@ const SOCIAL_LINKS = [
   {
     id: 'github',
     label: 'GITHUB',
-    handle: 'github.com/ZainUlAbideen-D...',
-    href: 'https://github.com/ZainUlAbideen',
+    handle: 'github.com/ZainUlAbideen-01',
+    href: 'https://github.com/ZainUlAbideen-01',
     icon: (
       <img src="/svgs/github.svg" alt="Github" />
     ),
@@ -26,8 +26,8 @@ const SOCIAL_LINKS = [
   {
     id: 'gmail',
     label: 'GMAIL',
-    handle: 'zain.gd234@gmail.com',
-    href: 'mailto:zain.gd234@gmail.com',
+    handle: 'zain.ijaz12334@gmail.com',
+    href: 'mailto:zain.ijaz12334@gmail.com',
     icon: (
       <img src="/svgs/gmail.svg" alt="Gmail" />
     ),
@@ -44,8 +44,8 @@ function SocialLink({
     <a
       ref={ref}
       href={link.href}
-      target="_blank"
-      rel="noopener noreferrer"
+      target={link.href.startsWith('mailto:') ? undefined : '_blank'}
+      rel={link.href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
       style={{
         display: 'flex',
         alignItems: 'center',
@@ -366,7 +366,7 @@ export default function Contact() {
                   marginTop: '12px',
                 }}
               >
-                Something went wrong. Try emailing directly at zain.gd234@gmail.com
+                Something went wrong. Try emailing directly at zain.ijaz12334@gmail.com
               </p>
             )}
           </div>

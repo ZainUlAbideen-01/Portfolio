@@ -12,57 +12,67 @@ const OTHER_PROJECTS = [
     id: 'sushi-store',
     name: 'SUSHI THEMED STORE',
     description:
-      'A fully responsive e-commerce storefront for a Japanese restaurant. Cart management, animations, and a clean UI.',
+      'A fully responsive e-commerce storefront for a Japanese sushi themed restaurant with clean animations.',
     image: '/images/other-projects/sushi.png',
-    tags: ['JavaScript', 'React', 'CSS', 'Node.js', 'MongoDB'],
+    tags: ['HTML', 'TailwindCSS', 'JavaScript', 'Animate-On-Scroll', 'Netlify'],
     href: 'https://github.com/ZainUlAbideen',
-    website: 'sushiman.com',
+    website: 'sushistore826.netlify.app',
+  },
+    {
+    id: 'zmovies',
+    name: 'ZMOVIES',
+    description: 'A movie browsing website that lets users explore movies, view details, and save their favorite titles for easy access.',
+    image: '/images/other-projects/zmovies.png',
+    tags: ['React','JavaScript','TailwindCSS', 'TMDB API', 'Redux Toolkit', 'Lucide React', 'Netlify'],
+    href: 'https://github.com/ZainUlAbideen/ZMovies',
+    website: 'zmovies826.netlify.app',
+  },
+    {
+    id: 'spacesync',
+    name: 'SPACE SYNC RESOURCE MANAGER',
+    description: 'A resource management platform for organizations to manage users, access groups, spaces, and administrative permissions.',
+    image: '/images/other-projects/spacesync.png',
+    tags: ['NextJs', 'MongoDB', 'JWT', 'Express' , 'shadcn/ui', 'TailwindCSS', 'Lucide React', 'TypeScript', 'REST APIs'],
+    href: 'https://github.com/ZainUlAbideen',
+    website: '',
+  },
+    {
+    id: 'tunely',
+    name: 'TUNELY',
+    description: 'A Spotify-style music streaming website where users can explore albums, browse songs, and enjoy the music.',
+    image: '/images/other-projects/tunely.png',
+    tags: ['HTML','CSS','JavaScript', 'Netlify'],
+    href: 'https://github.com/ZainUlAbideen/ZMovies',
+    website: 'tunely826.netlify.app',
+  },
+    {
+    id: 'jumper-game',
+    name: 'SUPER JUMPER GAME',
+    description: 'A Mario-style 2D platformer game built with .NET Windows Forms, featuring three levels, enemies and obstacles.',
+    image: '/images/other-projects/jumper.png',
+    tags: ['C#','.NET'],
+    href: 'https://github.com/ZainUlAbideen',
+    website: '',
+  },
+    {
+    id: 'cosmetics-store',
+    name: 'COSMETICS STORE',
+    description: 'A .NET-based cosmetics booking management system for managing customer, bookings, and products.',
+    image: '/images/other-projects/cosmetics.png',
+    tags: ['MySql', 'SSMS','C#','.NET'],
+    href: 'https://github.com/ZainUlAbideen',
+    website: '',
   },
   {
-    id: 'weather-app',
-    name: 'WEATHER DASHBOARD',
-    description:
-      'Real-time weather with location search, 7-day forecasts, and animated weather icons pulled from OpenWeather API.',
-    image: '/images/other-projects/weather.png',
-    tags: ['TypeScript', 'Next.js', 'Tailwind', 'REST API'],
+    id: 'gym-fitness',
+    name: 'GYM FITNESS TRACKER',
+    description: 'A computer vision-based fitness tracker that counts workout reps and sets in real time, with an integrated AI chatbot.',
+    image: '/images/other-projects/gym.png',
+    tags: ['Python', 'Html','Css','Javascript', 'MediaPipe Hands', 'Gemini API', 'MediaPipe Pose'],
     href: 'https://github.com/ZainUlAbideen',
+    website: '',
   },
-  {
-    id: 'chat-app',
-    name: 'REAL-TIME CHAT APP',
-    description:
-      'WebSocket-powered chat with rooms, typing indicators, read receipts, and end-to-end encrypted messages.',
-    image: '/images/other-projects/chat.png',
-    tags: ['Socket.io', 'Express', 'React', 'PostgreSQL'],
-    href: 'https://github.com/ZainUlAbideen',
-  },
-  {
-    id: 'expense-tracker',
-    name: 'EXPENSE TRACKER',
-    description:
-      'Personal finance manager with category breakdowns, monthly charts, and CSV export functionality.',
-    image: '/images/other-projects/expense.png',
-    tags: ['React', 'Chart.js', 'Firebase', 'Tailwind'],
-    href: 'https://github.com/ZainUlAbideen',
-  },
-  {
-    id: 'ai-resume',
-    name: 'AI RESUME BUILDER',
-    description:
-      'GPT-powered resume generator that tailors content to job descriptions and exports pixel-perfect PDFs.',
-    image: '/images/other-projects/resume.png',
-    tags: ['Python', 'FastAPI', 'OpenAI', 'React'],
-    href: 'https://github.com/ZainUlAbideen',
-  },
-  {
-    id: 'url-shortener',
-    name: 'URL SHORTENER',
-    description:
-      'High-throughput link shortener with analytics dashboard, custom slugs, and QR code generation.',
-    image: '/images/other-projects/url.png',
-    tags: ['Go', 'Redis', 'React', 'PostgreSQL'],
-    href: 'https://github.com/ZainUlAbideen',
-  },
+
 ]
 
 // Marquee row for tech tags
@@ -194,7 +204,10 @@ function OtherProjectCard({
               </div>
 
               {project.website && (
-                <span
+                <a
+                  href={`https://${project.website}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   style={{
                     fontFamily: 'var(--font-geist-mono)',
                     fontSize: 'clamp(9px, 2vw, 12px)',
@@ -207,7 +220,7 @@ function OtherProjectCard({
                   }}
                 >
                   {project.website}
-                </span>
+                </a>
               )}
             </div>
           </div>

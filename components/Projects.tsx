@@ -10,27 +10,57 @@ const PROJECTS = [
     id: 'unison',
     name: 'UNISON',
     description:
-      'A collaborative learning platform that connects students and mentors in real time. Built with Next.js, WebSockets, and PostgreSQL.',
+      'UNISON is a social networking platform that connects university students and alumni, enabling networking, mentorship, career opportunities, and community engagement through a centralized platform.',
     image: '/images/unison.png',
     href: 'https://github.com/ZainUlAbideen',
+    tags: ['Next.js', 'WebSockets', 'Neo4j', 'Lucide React', 'shadcn/ui', 'NestJs', 'TailwindCSS', 'TypeScript', 'GraphQL', 'JWT'],
   },
   {
     id: 'image-hoster',
     name: 'IMAGE HOSTER',
     description:
-      'A fast, privacy-first image hosting service with shareable links, drag-and-drop upload, and automatic compression.',
+      'A full-stack image management platform where users can upload, store, and manage images using Cloudinary, with secure user authentication and cloud-based media handling.',
     image: '/images/image-hoster.png',
     href: 'https://github.com/ZainUlAbideen',
+    tags: ['React', 'Node.js', 'Express.js', 'MongoDB', 'Cloudinary', 'JWT', 'TailwindCSS', 'TypeScript'],
   },
   {
     id: 'pneumonia-detector',
     name: 'PNEUMONIA DETECTION SYSTEM',
     description:
-      'A CNN-based deep learning model that classifies chest X-rays for pneumonia detection with 94% accuracy, deployed as a web app.',
+      'A CNN-based deep learning model that classifies chest X-rays for pneumonia detection with 99% accuracy with ResNet-18.',
     image: '/images/pneumonia.png',
     href: 'https://github.com/ZainUlAbideen',
+    tags: ['ResNet-18', 'Python', 'Streamlit', 'Sklearn', 'Torch', 'Matplotlib', 'Numpy'],
   },
 ]
+
+function Marquee({ tags }: { tags: string[] }) {
+  const doubled = [...tags, ...tags]
+  return (
+    <div className="marquee-wrapper" style={{ marginBottom: 'clamp(6px, 1.5vw, 12px)' }}>
+      <div className="marquee-track">
+        {doubled.map((tag, i) => (
+          <span
+            key={i}
+            style={{
+              fontFamily: 'var(--font-geist-mono)',
+              fontSize: 'clamp(8px, 1.6vw, 10px)',
+              letterSpacing: '0.08em',
+              color: '#717171',
+              background: '#1e1e1e',
+              padding: 'clamp(3px, 0.8vw, 4px) clamp(6px, 1.8vw, 10px)',
+              borderRadius: '3px',
+              whiteSpace: 'nowrap',
+            }}
+          >
+            {tag}
+          </span>
+        ))}
+      </div>
+    </div>
+  )
+}
 
 function ProjectCard({
   project,
@@ -132,7 +162,7 @@ function ProjectCard({
             }}
           />
         </div>
-
+        <Marquee tags={project.tags} />
         <p
           ref={descRef as React.RefObject<HTMLParagraphElement>}
           className={`typewriter-cursor${done ? ' done' : ''}`}

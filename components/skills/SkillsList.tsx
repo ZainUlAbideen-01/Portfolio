@@ -22,6 +22,7 @@ export default function SkillsList({  }: Props) {
       }}
     >
       {SKILLS.map((skill) => {
+        const Icon = skill.icon
         return (
         <GlareHover 
           key={skill.id}
@@ -49,11 +50,7 @@ export default function SkillsList({  }: Props) {
               boxSizing: 'border-box',
             }}
           >
-            <img
-              src={`/icons/${skill.icon}.svg`}
-              alt=""
-              style={{ filter: 'invert(1)', width: '55%', height: 'auto' }}
-            />
+            <Icon style={{ width: '55%', height: 'auto' }}/>
             <h2
               style={{
                 fontSize: 'clamp(0.62rem, 2.4vw, 1rem)',
