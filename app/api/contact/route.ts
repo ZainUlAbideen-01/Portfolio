@@ -1,14 +1,15 @@
 import nodemailer from 'nodemailer'
 
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: process.env.GMAIL_USER,
-    pass: process.env.GMAIL_APP_PASSWORD,
-  },
-})
-
 export async function POST(req: Request) {
+  // Guard: fail fast with a clear message if env vars are missing
+  if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
+    console.error('Contact API: GMAIL_USER or GMAIL_APP_PASSWORD is not set.')
+    return Response.json(
+      { error: 'Server email configuration is missing.' },
+      { status: 500 }
+    )
+  }
+
   try {
     const { name, email, message } = await req.json()
 
@@ -18,6 +19,14 @@ export async function POST(req: Request) {
         { status: 400 }
       )
     }
+
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: process.env.GMAIL_USER,
+        pass: process.env.GMAIL_APP_PASSWORD,
+      },
+    })
 
     await transporter.sendMail({
       from: `"Portfolio Contact" <${process.env.GMAIL_USER}>`,
@@ -37,7 +46,12 @@ export async function POST(req: Request) {
 
     return Response.json({ ok: true })
   } catch (err) {
-    console.error('Contact API error:', err)
-    return Response.json({ error: 'Internal server error.' }, { status: 500 })
+    const message = err instanceof Error ? err.message : String(err)
+    console.error('Contact API error:', message)
+    return Response.json(
+      { error: `Failed to send email: ${message}` },
+      { status: 500 }
+    )
   }
 }
+
