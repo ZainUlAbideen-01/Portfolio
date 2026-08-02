@@ -36,7 +36,7 @@ export async function POST(req: Request) {
       text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
       html: `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
-          <h2 style="color: #0a0a0a;">New Portfolio Message</h2>
+          <h2 style="color: #2f2f2fff;">New Portfolio Message</h2>
           <p><strong>From:</strong> ${name} (${email})</p>
           <hr style="border: 1px solid #eee;" />
           <p style="white-space: pre-wrap;">${message}</p>
