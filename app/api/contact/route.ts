@@ -1,6 +1,12 @@
-import { Resend } from 'resend'
+import nodemailer from 'nodemailer'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: process.env.GMAIL_USER,
+    pass: process.env.GMAIL_APP_PASSWORD,
+  },
+})
 
 export async function POST(req: Request) {
   try {
@@ -13,11 +19,10 @@ export async function POST(req: Request) {
       )
     }
 
-    const { error } = await resend.emails.send({
-      // Replace with your verified Resend domain sender
-      from: 'Portfolio Contact <onboarding@resend.dev>',
-      to: 'zain.gd234@gmail.com',
-      reply_to: email,
+    await transporter.sendMail({
+      from: `"Portfolio Contact" <${process.env.GMAIL_USER}>`,
+      to: process.env.GMAIL_USER,
+      replyTo: email,
       subject: `Portfolio message from ${name}`,
       text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
       html: `
@@ -29,11 +34,6 @@ export async function POST(req: Request) {
         </div>
       `,
     })
-
-    if (error) {
-      console.error('Resend error:', error)
-      return Response.json({ error: 'Failed to send email.' }, { status: 500 })
-    }
 
     return Response.json({ ok: true })
   } catch (err) {
