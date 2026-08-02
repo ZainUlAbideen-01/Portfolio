@@ -3,7 +3,7 @@ import nodemailer from 'nodemailer'
 export async function POST(req: Request) {
   // Guard: fail fast with a clear message if env vars are missing
   if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
-    console.error('Contact API: GMAIL_USER or GMAIL_APP_PASSWORD is not set.')
+    console.error('Contact API is not set.')
     return Response.json(
       { error: 'Server email configuration is missing.' },
       { status: 500 }
