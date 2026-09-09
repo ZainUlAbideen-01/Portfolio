@@ -26,6 +26,7 @@ import {
   BrainCircuit,
   Boxes,
   Webhook,
+  Cpu
 } from 'lucide-react'
 import type { ComponentType, SVGProps } from 'react'
 
@@ -46,7 +47,6 @@ export const SKILLS: Skill[] = [
 
   { id: 8, name: 'Node.js', icon: SiNodedotjs },
   { id: 9, name: 'Express.js', icon: SiExpress },
-  { id: 10, name: 'Nest.js', icon: SiNestjs },
 
   { id: 11, name: 'MongoDB', icon: SiMongodb },
   { id: 12, name: 'SQL', icon: Database },
@@ -68,4 +68,6 @@ export const SKILLS: Skill[] = [
 
   { id: 24, name: 'OOP', icon: Boxes },
   { id: 25, name: 'REST APIs', icon: Webhook },
+
+  { id: 26, name: 'Machine Learning', icon: Cpu },
 ]
